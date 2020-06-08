@@ -6,5 +6,6 @@ namespace StackUnderflow.Models
   public class StackUnderflowContext : IdentityDbContext<ApplicationUser>
   {
 
+    public StackUnderflowContext(DbContextOptions options) : base(options) { }
   }
 }
