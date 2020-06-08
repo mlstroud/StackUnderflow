@@ -9,18 +9,18 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Home</a>
+        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link"})
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Forums</a>
+        @Html.ActionLink("Forums", "Index", "Forums", null, new { @class = "nav-link"})
       </li>
     </ul>
     <ul class="navbar-nav d-flex justify-content-end">
       <li class="nav-item">
-        <a class="nav-link" href="#">Log In</a>
+        @Html.ActionLink("Log In", "Login", "Account", null, new { @class = "nav-link"})
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Register</a>
+        @Html.ActionLink("Register", "Register", "Account", null, new { @class = "nav-link"})
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" style="margin-right: 25%; margin-left: 10px;">
