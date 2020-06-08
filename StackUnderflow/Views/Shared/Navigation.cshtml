@@ -15,14 +15,31 @@
         @Html.ActionLink("Forums", "Index", "Forums", null, new { @class = "nav-link"})
       </li>
     </ul>
-    <ul class="navbar-nav d-flex justify-content-end">
-      <li class="nav-item">
-        @Html.ActionLink("Log In", "Login", "Account", null, new { @class = "nav-link"})
-      </li>
-      <li class="nav-item">
-        @Html.ActionLink("Register", "Register", "Account", null, new { @class = "nav-link"})
-      </li>
-    </ul>
+    @if(User.Identity.IsAuthenticated)
+    {
+      <ul class="navbar-nav">
+        <li class="navbar-username">
+          Welcome, @User.Identity.Name</li>
+        <li class="nav-item">
+          @using (Html.BeginForm("Logout", "Account"))
+          {
+            @* @Html.ActionLink("Log Out", "Logout", "Account", null, new { @class = "nav-link"}) *@
+            <input type="submit" class="btn btn-outline-danger" value="Log Out">
+          }
+        </li>
+      </ul>
+    }
+    else
+    {
+      <ul class="navbar-nav d-flex justify-content-end">
+        <li class="nav-item">
+          @Html.ActionLink("Log In", "Login", "Account", null, new { @class = "nav-link"})
+        </li>
+        <li class="nav-item">
+          @Html.ActionLink("Register", "Register", "Account", null, new { @class = "nav-link"})
+        </li>
+      </ul>  
+    }
     <form class="form-inline my-2 my-lg-0" style="margin-right: 25%; margin-left: 10px;">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
