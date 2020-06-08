@@ -2,7 +2,58 @@
   Layout = "_Layout";
 }
 
+@using StackUnderflow.Models
+
 <div class="row">
+  <div class="col-md-12">
+    <div class="jumbotron">
+      <p class="lead">Welcome to the discussion!</p>
+    </div>
+  </div>
+</div>
+
+@if(@Model == null)
+{
+  <p>No Forums currently.</p>
+}
+else
+{
+  <table class="table">
+    <tr>
+      <th>Forum</th>
+      <th>Topics</th>
+      <th>Last Post</th>
+    </tr>
+    @foreach(Forum forum in Model)
+    {
+      <tr>
+        <td>
+          <strong>@forum.Name</strong>
+          <br>
+          @forum.Description
+        </td>
+        <td>@forum.Threads.Count</td>
+        <td></td>
+      </tr>
+    }
+  </table>
+  @foreach(Forum forum in Model)
+  {
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <strong>@forum.Name</strong>
+          </div>
+          <div class="card-body">
+            @forum.Description
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+}
+@* <div class="row">
   <div class="col-md-12">
     <div class="jumbotron">
       <p class="lead">Welcome to the discussion!</p>
@@ -34,4 +85,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> *@
