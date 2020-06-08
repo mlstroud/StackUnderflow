@@ -24,6 +24,7 @@ namespace StackUnderflow.Controllers
 
     public ActionResult Index()
     {
+      List<Forum> allForums = _db.Forums.ToList();
       return View();
     }
   }
