@@ -30,6 +30,27 @@ nav {
   height: 500px;
 }
 
-/* .btn {
+label {
+  font-weight: bold !important;
+}
+
+.form-control {
+  width: 50%;
+}
+
+a {
+  color: orange;
+}
+
+a:hover {
+  color: orange;
+  text-decoration: none;
+}
+
+.navbar-username {
+  margin: auto;
+  margin-right: 20px;
+  padding: auto;
   font-weight: bold;
-} */
+  color: white;
+}
