@@ -13,7 +13,7 @@ namespace StackUnderflow.Models
 
     public Thread()
     {
-      this.Threads = new HashSet<Post>();
+      this.Posts = new HashSet<Post>();
     }
   }
 }
