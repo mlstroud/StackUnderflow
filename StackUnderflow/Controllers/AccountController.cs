@@ -59,5 +59,12 @@ namespace StackUnderflow.Controllers
         return View();
       }
     }
+
+    [HttpPost]
+    public async Task<ActionResult> Logout()
+    {
+      await _signInManager.SignOutAsync();
+      return RedirectToAction("Index", "Home");
+    }
   }
 }
