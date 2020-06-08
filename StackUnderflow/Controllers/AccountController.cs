@@ -31,6 +31,27 @@ namespace StackUnderflow.Controllers
       IdentityResult result = await _userManager.CreateAsync(user, model.Password);
       if (result.Succeeded)
       {
+        return RedirectToAction("Login", "Account");
+      }
+      else
+      {
+        return View();
+      }
+    }
+
+    public ActionResult Login()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Login(LoginViewModel model)
+    {
+      Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager
+          .PasswordSignInAsync(model.UserName, model.Password, isPersistent: true, lockoutOnFailure: false);
+
+      if (result.Succeded)
+      {
         return RedirectToAction("Index", "Forums");
       }
       else
