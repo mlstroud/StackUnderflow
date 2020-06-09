@@ -7,7 +7,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="forum-new" style="float: left;">
-      <button class="btn btn-dark">New Thread</button>
+      @Html.ActionLink("New Thread", "New", "Threads", new { forumId = @ViewBag.Forum.ForumId }, new { @class = "btn btn-dark"})
     </div>
     <div class="forum-header">
       <h3><span style="color: orange;">stack</span><strong>underflow</strong> / @ViewBag.Forum.Name</h3>
@@ -24,7 +24,7 @@
       {
         <tr>
           <td scope="row">This forum is currently empty.</td>
-          <td class="text-center">0</td>
+          <td class="text-right">0</td>
           <td class="text-right"></td>
         </tr>
       }
@@ -33,13 +33,13 @@
         @foreach(Thread thread in Model)
         {
           <tr>
-            <td scope="row">@thread.Title</td>
-            <td class="text-center">@thread.Posts.Count</td>
-            <td class="text-left">Test Post</td>
+            <td scope="row">@Html.ActionLink($"{@thread.Title}", "Show", "Posts", new { id = @thread.ThreadId })</td>
+            <td class="text-right">@thread.Posts.Count</td>
+            <td class="text-right">Test Post</td>
           </tr>
         }
       }
     </table>
-    <button class="btn btn-dark">New Thread</button>
+        @Html.ActionLink("New Thread", "New", "Threads", new { forumId = @ViewBag.Forum.ForumId }, new { @class = "btn btn-dark"})
   </div>
 </div>
