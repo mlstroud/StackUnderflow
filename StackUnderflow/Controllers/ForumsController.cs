@@ -31,8 +31,9 @@ namespace StackUnderflow.Controllers
     [HttpGet("/Forums/{id}")]
     public ActionResult Show(int id)
     {
-      Forum forum = _db.Forums.FirstOrDefault(forums => forums.ForumId == id);
-      return View(forum);
+      ViewBag.Forum = _db.Forums.FirstOrDefault(forums => forums.ForumId == id);
+      List<Thread> allThreads = _db.Threads.Include(threads => threads.Posts).Where(threads => threads.ForumId == id).ToList();
+      return View(allThreads);
     }
   }
 }
