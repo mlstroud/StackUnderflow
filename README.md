@@ -11,6 +11,11 @@ _Users can register, log in, and create threads and posts._
 
 _This project is still in progress and is being updated regularly._
 
+## Demo
+![Screenshot of splash page](https://raw.githubusercontent.com/mlstroud/StackUnderflow/master/demo1.png)
+![Screenshot of forums page](https://raw.githubusercontent.com/mlstroud/StackUnderflow/master/demo2.png)
+![Screenshot of threads page](https://raw.githubusercontent.com/mlstroud/StackUnderflow/master/demo3.png)
+
 
 ## Specs
 ### User Stories
