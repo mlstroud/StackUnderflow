@@ -27,5 +27,12 @@ namespace StackUnderflow.Controllers
       List<Forum> allForums = _db.Forums.Include(forums => forums.Threads).ToList();
       return View(allForums);
     }
+
+    [HttpGet("/Forums/{id}")]
+    public ActionResult Show(int id)
+    {
+      Forum forum = _db.Forums.FirstOrDefault(forums => forums.ForumId == id);
+      return View(forum);
+    }
   }
 }
