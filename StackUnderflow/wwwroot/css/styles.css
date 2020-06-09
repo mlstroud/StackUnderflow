@@ -61,5 +61,18 @@ a:hover {
 }
 
 table {
+  margin-top: 15px;
   box-shadow: 1px 1px 2px black;
+}
+
+.forum-new {
+  margin-right: 15px;
+}
+
+.forum-header {
+  margin-left: 100px;
+}
+
+.card-header {
+  color: white;
 }
