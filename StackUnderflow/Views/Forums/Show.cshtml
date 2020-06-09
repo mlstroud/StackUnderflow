@@ -1,0 +1,45 @@
+@{
+  Layout = "_Layout";
+}
+
+@using StackUnderflow.Models
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="forum-new" style="float: left;">
+      <button class="btn btn-dark">New Thread</button>
+    </div>
+    <div class="forum-header">
+      <h3><span style="color: orange;">stack</span><strong>underflow</strong> / @ViewBag.Forum.Name</h3>
+    </div>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Topics</th>
+        <th scope="col" class="text-right">Posts</th>
+        <th scope="col" class="text-right">Last Post</th>
+      </tr>
+      </thead>
+      @if(@Model.Count == 0)
+      {
+        <tr>
+          <td scope="row">This forum is currently empty.</td>
+          <td class="text-center">0</td>
+          <td class="text-right"></td>
+        </tr>
+      }
+      else
+      {
+        @foreach(Thread thread in Model)
+        {
+          <tr>
+            <td scope="row">@thread.Title</td>
+            <td class="text-center">@thread.Posts.Count</td>
+            <td class="text-left">Test Post</td>
+          </tr>
+        }
+      }
+    </table>
+    <button class="btn btn-dark">New Thread</button>
+  </div>
+</div>
