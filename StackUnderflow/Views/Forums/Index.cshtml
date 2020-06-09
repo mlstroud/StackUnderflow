@@ -4,85 +4,37 @@
 
 @using StackUnderflow.Models
 
+
 <div class="row">
   <div class="col-md-12">
-    <div class="jumbotron">
-      <p class="lead">Welcome to the discussion!</p>
-    </div>
-  </div>
-</div>
-
-@if(@Model == null)
-{
-  <p>No Forums currently.</p>
-}
-else
-{
-  <table class="table">
-    <tr>
-      <th>Forum</th>
-      <th>Topics</th>
-      <th>Last Post</th>
-    </tr>
-    @foreach(Forum forum in Model)
+    @if(@Model == null)
     {
-      <tr>
-        <td>
-          <strong>@forum.Name</strong>
-          <br>
-          @forum.Description
-        </td>
-        <td>@forum.Threads.Count</td>
-        <td></td>
-      </tr>
+      <p>No Forums currently.</p>
     }
-  </table>
-  @foreach(Forum forum in Model)
-  {
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header">
-            <strong>@forum.Name</strong>
-          </div>
-          <div class="card-body">
-            @forum.Description
-          </div>
-        </div>
-      </div>
-    </div>
-  }
-}
-@* <div class="row">
-  <div class="col-md-12">
-    <div class="jumbotron">
-      <p class="lead">Welcome to the discussion!</p>
-    </div>
+    else
+    {
+      <h3><span style="color: orange;">stack</span><strong>underflow</strong></h3>
+      <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Forum</th>
+          <th scope="col" class="text-center">Topics</th>
+          <th scope="col" class="text-left">Last Post</th>
+        </tr>
+        </thead>
+        @foreach(Forum forum in Model)
+        {
+          <tr>
+            <td scope="row">
+              <strong>@Html.ActionLink($"{@forum.Name}", "Show", "Forums", new { id = @forum.ForumId })</strong>
+              <br>
+              @forum.Description
+            </td>
+            <td class="text-center">@forum.Threads.Count</td>
+            <td class="text-left">Test Post</td>
+          </tr>
+        }
+      </table>
+    }
   </div>
 </div>
-
-<div class="row">
-  <div class="col-md-12">
-    <div class="card">
-      <div class="card-header">
-        <strong>General</strong>
-      </div>
-      <div class="card-body">
-        Testing
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-12">
-    <div class="card">
-      <div class="card-header">
-        <strong>General</strong>
-      </div>
-      <div class="card-body">
-        Testing
-      </div>
-    </div>
-  </div>
-</div> *@
